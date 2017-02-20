@@ -44,9 +44,9 @@ return false;
 // Read data from database to show data in admin page
 public function read_user_information($username) {
 
-$condition = "user_name =" . "'" . $username . "'";
+$condition = "email =" . "'" . $username . "'";
 $this->db->select('*');
-$this->db->from('user_login');
+$this->db->from('users');
 $this->db->where($condition);
 $this->db->limit(1);
 $query = $this->db->get();

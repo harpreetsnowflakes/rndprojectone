@@ -1,6 +1,6 @@
 <?php 
 if (isset($this->session->userdata['logged_in'])) {
-header("location: http://localhost/2017/feb/ci/administration/index.php/user_authentication/user_login_process");
+header("location: http://localhost/2017/feb/ci/administration/index.php/authentication/user_login_process");
 }
 
 echo $header; 
@@ -28,7 +28,7 @@ echo "</div>";
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-<?php echo form_open('user_authentication/user_login_process'); ?>
+<?php echo form_open('authentication/user_login_process'); ?>
 <?php
 echo "<div class='error_msg'>";
 if (isset($error_message)) {
@@ -38,11 +38,11 @@ echo validation_errors();
 echo "</div>";
 ?>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" name="username" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" name="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
