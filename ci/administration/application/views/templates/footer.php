@@ -239,5 +239,38 @@
 <script src="<?php echo base_url(); ?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
+<script src="<?php echo base_url(); ?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datatables/css/jquery.dataTables.min.css"></script>
+<script type="text/javascript">
+ 
+var table;
+ 
+$(document).ready(function() {
+ 
+    //datatables
+    table = $('#table').DataTable({ 
+ 
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+ 
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('customers/ajax_list')?>",
+            "type": "POST"
+        },
+ 
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        { 
+            "targets": [ 0 ], //first column / numbering column
+            "orderable": false, //set not orderable
+        },
+        ],
+ 
+    });
+ 
+});
+</script>
 </body>
 </html>
